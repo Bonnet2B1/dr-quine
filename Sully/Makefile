@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 16:59:43 by edelarbr          #+#    #+#              #
-#    Updated: 2026/01/12 00:24:13 by edelarbr         ###   ########.fr        #
+#    Updated: 2026/01/13 00:20:15 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(NAME):		$(OBJS)
 # -------------------------------- Rules -----------------------------
 
 clean:
-				@ $(RM) $(OBJ_DIR) Sully_1.c Sully_2.c Sully_3.c Sully_4.c Sully_5
+				@ $(RM) $(OBJ_DIR) Sully_0.c Sully_1.c Sully_2.c Sully_3.c Sully_4.c Sully_0 Sully_1 Sully_2 Sully_3 Sully_4
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
