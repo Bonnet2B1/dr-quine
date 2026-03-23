@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: edelarbr <edelarbr@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 16:59:43 by edelarbr          #+#    #+#              #
-#    Updated: 2026/01/10 22:26:09 by edelarbr         ###   ########.fr        #
+#    Updated: 2026/03/23 15:42:37 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,4 +59,10 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all bonus clean fclean re
+test:			$(NAME)
+				@ echo "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
+				@ ./$(NAME) > tmp_$(NAME)
+				@ diff tmp_$(NAME) $(SRCS) && echo "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo "$(RED)Test failed! (Differences found)$(CLR_RMV)" && rm -f tmp_$(NAME) && exit 1)
+				@ rm -f tmp_$(NAME)
+
+.PHONY:			all bonus clean fclean re test
