@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 16:59:43 by edelarbr          #+#    #+#              #
-#    Updated: 2026/01/11 23:13:15 by edelarbr         ###   ########.fr        #
+#    Updated: 2026/03/23 15:52:34 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,4 +59,9 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all bonus clean fclean re
+test:			$(NAME)
+				@ echo "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
+				@ ./$(NAME)
+				@ diff Grace_kid.c $(SRCS) && echo "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo "$(RED)Test failed! (Differences found)$(CLR_RMV)" && exit 1)
+
+.PHONY:			all clean fclean re test
