@@ -15,8 +15,8 @@
 */
 
 bool print_source_code() {
-	char source_code[] = "#include <stdbool.h>%c#include <stdio.h>%c%c/*%c# Tasks%c## Program%c- [x] The executable must be named Colleen. (makefile)%c- [x] When executed, the program must display on the standard output an output identical to the source code of the file used to compile the program.%c## Source code%c- [x] A main function.%c- [x] Two different comments.%c- [x] One of the comments must be present in the main function.%c- [x] One of the comments must be present outside of your program.%c- [x] Another function in addition to the main function (which of course will be called).%c*/%c%cbool print_source_code() {%c	char source_code[] = %c%s%c;%c	if (printf(source_code, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 34, source_code, 34, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10) <= 0)%c		return (0);%c	return (1);%c}%c%cint main() {%c	/* This is the main comment */%c	if (!print_source_code())%c		return (1);%c	return (0);%c}%c";
-	if (printf(source_code, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 34, source_code, 34, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10) <= 0)
+	char source_code[] = "#include <stdbool.h>%2$c#include <stdio.h>%2$c%2$c/*%2$c# Tasks%2$c## Program%2$c- [x] The executable must be named Colleen. (makefile)%2$c- [x] When executed, the program must display on the standard output an output identical to the source code of the file used to compile the program.%2$c## Source code%2$c- [x] A main function.%2$c- [x] Two different comments.%2$c- [x] One of the comments must be present in the main function.%2$c- [x] One of the comments must be present outside of your program.%2$c- [x] Another function in addition to the main function (which of course will be called).%2$c*/%2$c%2$cbool print_source_code() {%2$c	char source_code[] = %1$c%3$s%1$c;%2$c	if (printf(source_code, 34, 10, source_code) <= 0)%2$c		return (0);%2$c	return (1);%2$c}%2$c%2$cint main() {%2$c	/* This is the main comment */%2$c	if (!print_source_code())%2$c		return (1);%2$c	return (0);%2$c}%2$c";
+	if (printf(source_code, 34, 10, source_code) <= 0)
 		return (0);
 	return (1);
 }
