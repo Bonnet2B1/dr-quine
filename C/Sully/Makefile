@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 16:59:43 by edelarbr          #+#    #+#              #
-#    Updated: 2026/01/13 00:20:15 by edelarbr         ###   ########.fr        #
+#    Updated: 2026/04/03 10:37:08 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(NAME):		$(OBJS)
 # -------------------------------- Rules -----------------------------
 
 clean:
-				@ $(RM) $(OBJ_DIR) Sully_0.c Sully_1.c Sully_2.c Sully_3.c Sully_4.c Sully_0 Sully_1 Sully_2 Sully_3 Sully_4
+				@ $(RM) $(OBJ_DIR) Sully_0.c Sully_1.c Sully_2.c Sully_3.c Sully_4.c Sully_5.c Sully_0 Sully_1 Sully_2 Sully_3 Sully_4 Sully_5
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
@@ -59,4 +59,13 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all bonus clean fclean re
+test:			$(NAME)
+				@ echo "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
+				@ ./$(NAME)
+				@ echo "$(YELLOW)Diff between $(SRCS) and Sully_0.c:$(CLR_RMV)"
+				@ diff $(SRCS) Sully_0.c || true
+				@ echo "$(YELLOW)Diff between Sully_3.c and Sully_2.c:$(CLR_RMV)"
+				@ diff Sully_3.c Sully_2.c || true
+				@ echo "$(GREEN)Test finished!$(CLR_RMV)"
+
+.PHONY:			all bonus clean fclean re test

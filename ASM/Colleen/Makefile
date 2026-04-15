@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/22 12:00:00 by edelarbr          #+#    #+#              #
-#    Updated: 2026/03/23 15:36:28 by edelarbr         ###   ########.fr        #
+#    Updated: 2026/04/15 16:38:12 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,9 +68,9 @@ fclean:			clean
 re:				fclean all
 
 test:			$(NAME)
-				@ echo -e "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
-				@ ./$(NAME) > tmp_$(NAME)
-				@ diff tmp_$(NAME) $(SRCS) && echo -e "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo -e "$(RED)Test failed! (Differences found)$(CLR_RMV)" && exit 1)
-				@ rm -f tmp_$(NAME)
+				@ echo "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
+				@ ./$(NAME) > tmp_$(NAME).s
+				@ diff tmp_$(NAME).s Colleen.s && echo "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo "$(RED)Test failed! (Differences found)$(CLR_RMV)" && rm -f tmp_$(NAME).s && exit 1)
+				@ rm -f tmp_$(NAME).s
 
 .PHONY:			all clean fclean re test
