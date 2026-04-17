@@ -68,9 +68,9 @@ fclean:			clean
 re:				fclean all
 
 test:			$(NAME)
-				@ echo "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
+				@ echo -e "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
 				@ ./$(NAME) > tmp_$(NAME).s
-				@ diff tmp_$(NAME).s Colleen.s && echo "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo "$(RED)Test failed! (Differences found)$(CLR_RMV)" && rm -f tmp_$(NAME).s && exit 1)
+				@ diff tmp_$(NAME).s Colleen.s && echo -e "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo -e "$(RED)Test failed! (Differences found)$(CLR_RMV)" && rm -f tmp_$(NAME).s && exit 1)
 				@ rm -f tmp_$(NAME).s
 
 .PHONY:			all clean fclean re test

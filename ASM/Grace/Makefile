@@ -59,6 +59,7 @@ $(NAME):		$(OBJS)
 
 clean:
 				@ $(RM) $(OBJ_DIR)
+				@ $(RM) Grace_kid.s
 				@ echo -e "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
@@ -68,8 +69,8 @@ fclean:			clean
 re:				fclean all
 
 test:			$(NAME)
-				@ echo "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
+				@ echo -e "$(CYAN)Testing $(NAME)...$(CLR_RMV)"
 				@ ./$(NAME)
-				@ diff Grace_kid.s Grace.s && echo "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo "$(RED)Test failed! (Differences found)$(CLR_RMV)" && exit 1)
+				@ diff Grace_kid.s Grace.s && echo -e "$(GREEN)Test passed! (No differences)$(CLR_RMV)" || (echo -e "$(RED)Test failed! (Differences found)$(CLR_RMV)" && exit 1)
 
 .PHONY:			all clean fclean re test
